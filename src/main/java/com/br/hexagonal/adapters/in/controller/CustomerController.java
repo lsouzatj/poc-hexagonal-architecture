@@ -3,10 +3,7 @@ package com.br.hexagonal.adapters.in.controller;
 import com.br.hexagonal.adapters.in.controller.request.CustomerRequest;
 import com.br.hexagonal.adapters.in.controller.response.CustomerResponse;
 import com.br.hexagonal.application.core.model.Customer;
-import com.br.hexagonal.application.ports.in.DeleteByIdCustomerInputPort;
-import com.br.hexagonal.application.ports.in.FindAllCustomerInputPort;
-import com.br.hexagonal.application.ports.in.FindByIdCustomerInputPort;
-import com.br.hexagonal.application.ports.in.InsertCustomerInputPort;
+import com.br.hexagonal.application.ports.in.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
@@ -25,6 +22,7 @@ public class CustomerController {
     private final FindAllCustomerInputPort findAllCustomerInputPort;
     private final FindByIdCustomerInputPort findByIdCustomerInputPort;
     private final DeleteByIdCustomerInputPort deleteByIdCustomerInputPort;
+    private final UpdateCustomerInputPort updateCustomerInputPort;
 
     @PostMapping("/save")
     public ResponseEntity<CustomerResponse> save(@RequestBody CustomerRequest customerRequest){
@@ -67,6 +65,17 @@ public class CustomerController {
         return deleteByIdCustomerInputPort.delete(id).map(customer -> {
             CustomerResponse customerResponse = new CustomerResponse();
             BeanUtils.copyProperties(customer, customerResponse);
+            return ResponseEntity.status(HttpStatus.OK).body(customerResponse);
+        }).orElse(ResponseEntity.status(HttpStatus.NO_CONTENT).build());
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<CustomerResponse> update(@RequestBody CustomerRequest customerRequest, @PathVariable("id") Long id){
+        Customer customer = new Customer();
+        BeanUtils.copyProperties(customerRequest, customer);
+        return updateCustomerInputPort.update(customer, id).map(newCustomer ->{
+            CustomerResponse customerResponse = new CustomerResponse();
+            BeanUtils.copyProperties(newCustomer, customerResponse);
             return ResponseEntity.status(HttpStatus.OK).body(customerResponse);
         }).orElse(ResponseEntity.status(HttpStatus.NO_CONTENT).build());
     }
