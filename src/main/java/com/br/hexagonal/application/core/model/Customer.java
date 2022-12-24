@@ -1,17 +1,15 @@
 package com.br.hexagonal.application.core.model;
 
-import java.util.UUID;
-
 public class Customer {
-    private UUID id;
+    private Long id;
     private String name;
     private String cpf;
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
