@@ -1,6 +1,6 @@
 <div align="center">
 
-![](https://img.shields.io/badge/Status-Em%20Desenvolvimento-orange)
+![](https://img.shields.io/badge/Status-Em%20Concluído-green)
 </div>
 
 <div align="center">
@@ -29,17 +29,17 @@
 
 > **Vantagens😆🧘👍🌈🌞**
 ```
-> - Facilidade de plugar/desplugar frameworks, tecnologias e bancos de dados externos, gerando uma independência na aplicação.
-> - Facilmente escalável e testável.
-> - A arquitetura facilita que várias equipes/desenvolvedores trabalhem no mesmo projeto sem esbarrar em alterações um dos outros. “no conflict”
-> - Fácil de adicionar novas funcionalidades. A dificuldade de adicionar novas funcionalidades para a aplicação é constante e relativamente pequena, principalmente quando o projeto já está grande.
-> - É fácil extrair e separar partes da aplicação para micro serviços.
+ - Facilidade de plugar/desplugar frameworks, tecnologias e bancos de dados externos, gerando uma independência na aplicação.
+ - Facilmente escalável e testável.
+ - A arquitetura facilita que várias equipes/desenvolvedores trabalhem no mesmo projeto sem esbarrar em alterações um dos outros. “no conflict”
+ - Fácil de adicionar novas funcionalidades. A dificuldade de adicionar novas funcionalidades para a aplicação é constante e relativamente pequena, principalmente quando o projeto já está grande.
+ - É fácil extrair e separar partes da aplicação para micro serviços.
 ```
 
 > **Desvantagens 😥👺👎😈🌑**
 ```
-> - É uma arquitetura complexa e depende de um bom conhecimento em princípios de desenvolvimento, como SOLID, clean architecture e DDD. Desenvolvedores menos experientes poderão ter dificuldades em trabalhar em um projeto com uma arquitetura hexagonal.
-> - Aplicações menores terão mais problemas do que soluções em utilizar esta arquitetura 🤔. Logo, não é recomendado para aplicações com operações simples e poucos adaptadores. O foco maior da arquitetura hexagonal são as aplicações que possuem vários adaptadores externos e múltiplas funcionalidades.
+ - É uma arquitetura complexa e depende de um bom conhecimento em princípios de desenvolvimento, como SOLID, clean architecture e DDD. Desenvolvedores menos experientes poderão ter dificuldades em trabalhar em um projeto com uma arquitetura hexagonal.
+ - Aplicações menores terão mais problemas do que soluções em utilizar esta arquitetura 🤔. Logo, não é recomendado para aplicações com operações simples e poucos adaptadores. O foco maior da arquitetura hexagonal são as aplicações que possuem vários adaptadores externos e múltiplas funcionalidades.
 ```
 
 ## Funcionalidades
