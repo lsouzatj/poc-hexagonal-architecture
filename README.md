@@ -1,6 +1,6 @@
 <div align="center">
 
-![](https://img.shields.io/badge/Status-Em%20Concluído-green)
+![](https://img.shields.io/badge/Status-%20Concluído-green)
 </div>
 
 <div align="center">
@@ -71,9 +71,9 @@
 - Git
 
 ## Portas
-| Aplicação          | Porta |
-|--------------------|-------|
-| Ms-Launcher        | 8080  |
+| Aplicação                | Porta |
+|--------------------------|-------|
+| poc-hexagonal-architecture| 8080  |
 
 ## Links
 
