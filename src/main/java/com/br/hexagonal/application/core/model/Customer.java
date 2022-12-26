@@ -4,6 +4,8 @@ public class Customer {
     private Long id;
     private String name;
     private String cpf;
+    private String cep;
+    private Address address;
 
     public Long getId() {
         return id;
@@ -27,5 +29,21 @@ public class Customer {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }

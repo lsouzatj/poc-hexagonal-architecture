@@ -15,4 +15,5 @@ public class CustomerEntity {
     private Long id;
     private String name;
     private String cpf;
+    private String cep;
 }

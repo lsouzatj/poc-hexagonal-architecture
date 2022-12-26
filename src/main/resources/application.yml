@@ -1,1 +1,3 @@
-
+clients:
+  address:
+    url: https://viacep.com.br/ws

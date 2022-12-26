@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -24,14 +25,17 @@ public class CustomerController {
     private final DeleteByIdCustomerInputPort deleteByIdCustomerInputPort;
     private final UpdateCustomerInputPort updateCustomerInputPort;
 
-    @PostMapping("/save")
-    public ResponseEntity<CustomerResponse> save(@RequestBody CustomerRequest customerRequest){
+    @PostMapping("/save/{zipCode}")
+    public ResponseEntity<CustomerResponse> save(@RequestBody CustomerRequest customerRequest,
+                                                 @PathVariable("zipCode") String zipCode){
         Customer customer = new Customer();
         BeanUtils.copyProperties(customerRequest, customer);
-        var customerSaved = insertCustomerInputPort.save(customer);
-        CustomerResponse customerResponse = new CustomerResponse();
-        BeanUtils.copyProperties(customerSaved, customerResponse);
-        return ResponseEntity.status(HttpStatus.OK).body(customerResponse);
+        var customerSaved = insertCustomerInputPort.save(customer, zipCode);
+        return Optional.ofNullable(customerSaved).map((c) ->{
+            CustomerResponse customerResponse = new CustomerResponse();
+            BeanUtils.copyProperties(c, customerResponse);
+            return ResponseEntity.status(HttpStatus.OK).body(customerResponse);
+        }).orElse(ResponseEntity.status(HttpStatus.NO_CONTENT).build());
     }
 
     @GetMapping("/findAll")
