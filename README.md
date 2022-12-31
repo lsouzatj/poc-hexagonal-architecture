@@ -79,3 +79,4 @@
 
 - Aplicação
   - http://localhost:8080
+  - https://viacep.com.br/ws/{zipCode}/json/
